@@ -1,0 +1,15 @@
+import requests
+from bs4 import BeautifulSoup
+
+# Задаем URL-адрес страницы для парсинга
+url = 'https://wol.jw.org/ru/wol/meetings/r2/lp-u/2023/26'
+
+# Отправляем GET-запрос на URL-адрес и получаем содержимое страницы
+response = requests.get(url)
+
+# Используем библиотеку BeautifulSoup для извлечения текста из HTML-кода страницы
+soup = BeautifulSoup(response.text, 'html.parser')
+text = soup.get_text()
+
+# Выводим текст
+print(text)
